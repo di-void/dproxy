@@ -1,0 +1,19 @@
+name: CI
+on: ["push", pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with: { components: "clippy, rustfmt" }
+
+      - name: Rust cache
+        uses: swatinem/rust-cache@v2
+
+      - name: Install nextest
+        uses: taiki-e/install-action@nextest
+      - run: make lint build test

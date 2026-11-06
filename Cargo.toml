@@ -3,4 +3,11 @@ name = "dproxy"
 version = "0.1.0"
 edition = "2024"
 
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "warn"
+expect_used = "warn"
+
 [dependencies]
