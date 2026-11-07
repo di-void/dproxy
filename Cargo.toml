@@ -11,3 +11,4 @@ unwrap_used = "warn"
 expect_used = "warn"
 
 [dependencies]
+tokio = { version = "1", features = ["full"] }
